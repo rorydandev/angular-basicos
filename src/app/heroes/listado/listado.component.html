@@ -1,0 +1,29 @@
+
+<!-- Tambien se puede usar heroeBorrado !== '' pero como *ngif detecta que es es 
+vacio por que asi lo declaramos en el ts   -->
+<div *ngIf="heroeBorrado ; else noBorrado">
+    <h3>Heroe Borrado
+        <small>
+            {{heroeBorrado}}
+        </small>
+    </h3>
+</div>
+
+<ng-template #noBorrado> 
+<h3>
+        No ha borrado
+</h3> 
+</ng-template>
+
+
+<button (click)="borrarHeroe()">
+    Borrar Heroe
+</button>
+
+<p>Listado De Heroes de Marvel </p>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index">
+        {{i + 1}} {{heroe}}
+    </li>
+</ul>
